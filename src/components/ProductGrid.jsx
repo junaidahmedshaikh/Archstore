@@ -115,7 +115,7 @@ export default function ProductGrid() {
   if (showAddForm) {
     return (
       <div className="space-y-6 max-w-4xl mx-auto px-4 py-6">
-        <div className="flex items-center gap-4">
+        <div className="flex items-start flex-col gap-4">
           <button
             variant="ghost"
             onClick={() => setShowAddForm(false)}

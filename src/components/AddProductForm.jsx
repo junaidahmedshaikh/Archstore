@@ -60,18 +60,21 @@ export default function AddProductForm({ onSubmit, onCancel }) {
   };
 
   return (
-    <div className="max-w-2xl mx-auto bg-amber-200">
-      <CardHeader>
-        <CardTitle>Product Information</CardTitle>
-      </CardHeader>
+    <div className=" mx-auto w-full">
+      <div className="flex justify-between items-center">
+        <h1>Product Information</h1>
+      </div>
       <div>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <label htmlFor="name">Product Name *</label>
+              <label htmlFor="name">
+                Product Name<span className="text-red-500">* </span>
+              </label>
               <input
                 id="name"
                 value={formData.name}
+                className="border-[1px] border-gray-400 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#6e62e5]"
                 onChange={(e) => handleInputChange("name", e.target.value)}
                 placeholder="Enter product name"
                 required
@@ -79,9 +82,12 @@ export default function AddProductForm({ onSubmit, onCancel }) {
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="brand">Brand *</label>
+              <label htmlFor="brand">
+                Brand<span className="text-red-500">* </span>
+              </label>
               <input
                 id="brand"
+                className="border-[1px] border-gray-400 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#6e62e5]"
                 value={formData.brand}
                 onChange={(e) => handleInputChange("brand", e.target.value)}
                 placeholder="Enter brand name"
@@ -92,12 +98,15 @@ export default function AddProductForm({ onSubmit, onCancel }) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <label htmlFor="price">Price ($) *</label>
+              <label htmlFor="price">
+                Price<span className="text-red-500">* </span>
+              </label>
               <input
                 id="price"
                 type="number"
                 step="0.01"
                 min="0"
+                className="border-[1px] border-gray-400 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#6e62e5]"
                 value={formData.price || ""}
                 onChange={(e) =>
                   handleInputChange(
@@ -111,12 +120,13 @@ export default function AddProductForm({ onSubmit, onCancel }) {
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="discount">Discount (%)</label>
+              <label htmlFor="discount">Discount (%) </label>
               <input
                 id="discount"
                 type="number"
                 min="0"
                 max="100"
+                className="border-[1px] border-gray-400 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#6e62e5]"
                 value={formData.discount || ""}
                 onChange={(e) =>
                   handleInputChange(
@@ -135,11 +145,16 @@ export default function AddProductForm({ onSubmit, onCancel }) {
             <div className="flex gap-2">
               <input
                 value={newImageUrl}
+                className="flex-1 border-[1px] border-gray-400 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#6e62e5]"
                 onChange={(e) => setNewImageUrl(e.target.value)}
                 placeholder="Enter image URL or leave empty for placeholder"
-                className="flex-1"
+                // className="flex-1"
               />
-              <button type="button" onClick={addImageUrl} variant="outline">
+              <button
+                type="button"
+                onClick={addImageUrl}
+                className="bg-[#6e62e5] text-white rounded-md px-4 py-2"
+              >
                 <Plus className="h-4 w-4" />
               </button>
             </div>
@@ -175,11 +190,18 @@ export default function AddProductForm({ onSubmit, onCancel }) {
             </div>
           </div>
 
-          <div className="flex gap-4 pt-4">
-            <button type="submit" className="flex-1">
+          <div className="flex w-full justify-end gap-4 pt-4">
+            <button
+              type="submit"
+              className="bg-[#6e62e5] text-white rounded-md p-2"
+            >
               Add Product
             </button>
-            <button type="button" onClick={onCancel} className="flex-1">
+            <button
+              type="button"
+              onClick={onCancel}
+              className="border-2 border-[#6e62e5] text-[#6e62e5] rounded-md p-2"
+            >
               Cancel
             </button>
           </div>
